@@ -1,0 +1,95 @@
+% Вставка изображения \image{}{}[][]
+
+% Обязательные аргументы:
+% 	1. Название изображения в папке img без расширения
+% 	2. Подпись к рисунку
+
+% Опциональные аргументы:
+% 	1. Размер картинки. По умолчанию: 16cm
+% 	2. label для ссылок
+\NewDocumentCommand\image{mmoo}{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#3, keepaspectratio]{#1}
+        \caption{#2}
+        \label{#4}
+    \end{figure}
+}
+
+% Заголовок для лабораторной работы \sectionlab{}
+% Отличается от стандартного  измененным стилем и отсутствием нумерации
+%
+% Обязательные аргументы:
+% 	1. Текст заголовка
+\NewDocumentCommand\sectionlab{m}{
+    \titleformat
+	{\section}
+	[hang]
+	{\normalfont\bfseries\filouter}
+	{}
+	{0pt}
+	{}
+\titlespacing
+	{\section}
+	{\parindent}
+	{5ex}
+	{4ex}
+
+    \section{#1}
+
+    \titleformat
+	{\section}
+	[hang]
+	{\normalfont\bfseries\center}
+	{\arabic{section}. }
+	{1ex}
+	{\MakeUppercase}
+\titlespacing
+	{\section}
+	{\parindent}
+	{5ex}
+	{4ex}
+}
+
+% Вставка заголовка приложения \sectionappendix[]
+% Автоматически нумерует приложения по латинским буквам. Позволяет получать полное название приложения с гиперссылкой через \nameref
+
+% Опциональные аргументы:
+% 	1. label для ссылок 
+\makeatletter
+\NewDocumentCommand\sectionappendix{o}{
+    \newpage
+    \refstepcounter{section}
+    \stepcounter{appendix_counter}
+    \section*{Приложение \Alph{appendix_counter}}
+    \addcontentsline{toc}{section}{\protect\numberline{}Приложение \Alph{appendix_counter}}
+    \edef\@currentlabelname{Приложение \Alph{appendix_counter}}
+    \phantomsection
+    \label{#1}
+}
+\makeatother
+
+% Макрос для ссылки на Рисунок в форме "Рисунок 1" \picref{}
+
+% Обязательный аргументы:
+% 	1. label картинки, на которую ссылка
+\NewDocumentCommand{\picref}{m}{
+    \hyperref[{#1}]{Рисунок~\ref*{#1}}
+}
+
+% Макрос для ссылки на Листинг в форме "Листинг 1" \lstref{}
+
+% Обязательный аргументы:
+% 	1. label картинки, на которую ссылка
+\NewDocumentCommand{\lstref}{m}{
+    \hyperref[{#1}]{Листинг~\ref*{#1}}
+}
+
+% Макрос для ссылки на Таблицу в форме "Таблица 1" \tblref{}
+
+% Обязательный аргументы:
+% 	1. label картинки, на которую ссылка
+\NewDocumentCommand{\tblref}{m}{
+    \hyperref[{#1}]{Таблица~\ref*{#1}}
+}
+

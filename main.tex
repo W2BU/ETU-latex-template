@@ -1,0 +1,43 @@
+% Credit: Хабибулин Артур 0301 СПбГЭТУ "ЛЭТИ" 2024
+\documentclass[14pt, a4paper]{extarticle}
+
+% Включаем файлы с настройками
+\include{setup/packages}
+\include{setup/format}
+\include{setup/macros}
+\include{setup/listings}
+
+% Намеренно не в файле packages
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=1cm]{geometry}
+
+% Счетчик приложений
+\newcounter{appendix_counter} 
+
+% Метаданные для pdf
+\author{Автор Авторович}
+\title{VKR_or_lab}
+\date{Сегодня 2024}
+
+% Подключения файла с библиографией
+\addbibresource{refs.bib}
+
+% Начало документа
+\begin{document}
+
+% Структура ВКР
+% По порядку: титульный лист, аннотация(реферат), содержание работы, введение, главы, заключение, список источников, приложения
+\includepdf[pages={1-}]{title/vkr_title.pdf}
+\include{annotation}
+\include{summary}
+\include{introduction}
+\include{chapters}
+\include{conclusion}
+\include{bib}
+\include{appendix}
+
+% Структура лабораторной работы
+% 
+% \include{title/lab_title}
+% \include{lab_content}
+
+\end{document}

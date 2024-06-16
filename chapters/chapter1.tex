@@ -1,0 +1,62 @@
+\section{Первая глава}
+
+\subsection{Первая подглава первой главы}
+Далее будут описаны примеры использования основных команд шаблона.
+
+Вставка картинки (\picref{pic:example1}) и ссылка на нее:
+
+\image{example_img}{Подпись к картинке}[8cm][pic:example1]
+
+Вставка формулы \eqref{eq:example1} и ссылка на нее:
+
+\begin{equation}
+    \label{eq:example1}
+    \frac{\delta f}{\delta t} = \lim_{h \rightarrow 0} \left[ \frac{f (t + h) - f(t)}{h} \right]
+\end{equation}
+
+Вставка таблицы(\tblref{tbl:example1}) и ссылки на нее:
+
+\begin{table}[H]
+    \centering
+    \caption{Пример таблицы}
+    \label{tbl:example1}
+    \begin{tabular}{| c | c | c |}
+        \hline
+        row & row & row \\
+        \hline
+        row & row & row \\
+        \hline
+        row & row & row \\
+        \hline
+        row & row & row \\
+        \hline
+        row & row & row \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Листинг minted (\lstref{code:example1}) и ссылка на него:
+
+\begin{listing}[H]
+    \caption{Пример листинга}
+    \label{code:example1}
+    \inputminted[breaklines=true, framesep=10pt, fontsize=\footnotesize, firstline=1, lastline=8]{python}{listing/code_sample.py}
+\end{listing}
+
+Листинг listings (\lstref{code:example2}) и ссылка на него:
+
+\begin{listing}[H]
+    \caption{Пример листинга}
+    \label{code:example2}
+    \lstinputlisting[language=Python, firstline=1, lastline=8]{listing/code_sample.py}
+\end{listing}
+
+Ссылка на приложение (\nameref{appendix:calc})
+
+Пример цитаты \cite{domanovdi}
+
+Пример нескольких цитат \cite{domanovdi,duportail:alu,fsrf40}
+
+\subsection{Вторая подглава первой главы}
+
+\subsection{Третья подглава первой главы}

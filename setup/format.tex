@@ -1,0 +1,94 @@
+% Установка языков документа
+\setdefaultlanguage[spelling=modern]{russian}
+\setotherlanguage{english}
+
+% Установка TNR для различных стилей текста
+\defaultfontfeatures{Mapping=tex-text}
+\setmonofont{Times New Roman}
+\setromanfont{Times New Roman}
+\setmainfont{Times New Roman}
+\newfontfamily\cyrillicfont{Times New Roman}
+
+\urlstyle{same}
+
+% Полуторный интервал
+\onehalfspacing
+
+% Красная строка
+\setlength{\parindent}{1.25cm}
+
+% Подсветка ссылок
+\hypersetup{
+    colorlinks=false,
+    urlcolor=blue,
+    filecolor=blue,
+    citecolor=green,
+    urlcolor=blue
+}
+
+% Папка с изображениями
+\graphicspath{{./img/}}
+% Длина изображений по умолчанию
+\setkeys{Gin}{width=16cm}
+
+% Форматирование подписей к картинками, листингам, таблицам
+\captionsetup[figure]{name={Рисунок}, labelsep = endash, font = small, justification=centering}
+\captionsetup[table]{name={Таблица}, labelsep = endash, font = small, justification=raggedleft, singlelinecheck=false, position = top}
+\captionsetup[listing]{name={Листинг}, labelsep = colon, font = small, justification=raggedright, singlelinecheck=false, position = top}
+
+% Форматирование заголовков глав и подглав
+\titleformat
+	{\section}
+	[hang]
+	{\normalfont\bfseries\center}
+	{\arabic{section}. }
+	{1ex}
+	{\MakeUppercase}
+\titlespacing
+	{\section}
+	{\parindent}
+	{5ex}
+	{4ex}
+\titleformat
+	{\subsection}
+	[hang]
+	{\normalfont\bfseries}
+	{\arabic{section}.\arabic{subsection}. }
+	{1ex}
+	{}
+\titlespacing
+	{\subsection}
+	{\parindent}
+	{4ex}
+	{4ex}
+
+% Нумерация рисунков и таблиц включает номер главы
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+% Можно включить и для формул
+%\counterwithin{equation}{section}
+
+% Установка шрифта для листингов minted
+\setmonofont{FiraCode-Regular.ttf}[
+	SizeFeatures={Size=10},
+	Path = setup/,
+	Contextuals=Alternate
+]
+
+% Настройка подсветки кода 
+\usemintedstyle{gruvbox-light} % делает подсветку для кода
+
+% Убираем жирный шрифт из названия ToC (Table of content)
+\renewcommand*\cfttoctitlefont{\normalfont\bfseries\MakeUppercase}
+% Убираем жирный шрифт из записей в ToC
+\renewcommand{\cftsecfont}{}
+% Убираем жирный шрифт из номеров страниц в ToC
+\renewcommand{\cftsecpagefont}{}
+
+% Уменьшаем расстояние между элементами списка 
+\setlist[enumerate]{itemsep=1.0pt}
+
+% Минимизируем количество переносов
+\tolerance = 500
+\hyphenpenalty = 20000
+\emergencystretch = 1cm
